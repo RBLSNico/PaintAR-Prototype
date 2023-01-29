@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
+
+    <Spinner
+        android:id="@+id/colorSpinner"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/color_blob"
+        android:gravity="center"
+        android:spinnerMode="dialog"
+        android:textAlignment="center"
+        android:visibility="visible" />
+
+    <!--    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="-100dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="gone">
+&lt;!&ndash;        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/greyScaleImage"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grey Scale Image"/>
+
+        </RelativeLayout>&ndash;&gt;
+
+    </LinearLayout>-->
+        <ImageView
+            android:id="@+id/imageFromData"
+            android:layout_width="match_parent"
+            android:layout_height="581dp"
+            android:visibility="visible"
+            android:gravity="center"
+            android:text="Tap on your wall to start visualizing."
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:fontFamily="sans-serif-condensed-medium"/>
+
+
+    <LinearLayout
+        android:id="@+id/middleLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="331dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <!--        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cannyEdgeImage"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0000"
+                android:text="Canny Edge Mask"/>
+
+        </RelativeLayout>-->
+        <!--        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/floodFillImage"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flood Fill Image"/>
+
+        </RelativeLayout>-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/inputImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Input Image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/outputImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Output Image" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+<!--    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="gone">
+&lt;!&ndash;        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/HSVImage"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HSV Image"/>
+
+        </RelativeLayout>&ndash;&gt;
+  </LinearLayout>-->
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="85dp"
+        android:gravity="center"
+        android:text="Color:"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+
+
+</LinearLayout>
