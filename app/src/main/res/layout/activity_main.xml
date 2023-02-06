@@ -3,171 +3,618 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="#EAE7B1">
 
 
-    <Spinner
-        android:id="@+id/colorSpinner"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_weight="1"
-        android:background="@drawable/color_blob"
-        android:gravity="center"
-        android:spinnerMode="dialog"
-        android:textAlignment="center"
-        android:visibility="visible" />
-
-    <!--    <LinearLayout
-        android:id="@+id/topLayout"
+    <ImageView
+        android:id="@+id/imageFromData"
         android:layout_width="match_parent"
-        android:layout_height="-100dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:visibility="gone">
-&lt;!&ndash;        <RelativeLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/greyScaleImage"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:scaleType="fitXY" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grey Scale Image"/>
-
-        </RelativeLayout>&ndash;&gt;
-
-    </LinearLayout>-->
-        <ImageView
-            android:id="@+id/imageFromData"
-            android:layout_width="match_parent"
-            android:layout_height="581dp"
-            android:visibility="visible"
-            android:gravity="center"
-            android:text="Tap on your wall to start visualizing."
-            android:textAllCaps="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:fontFamily="sans-serif-condensed-medium"/>
+        android:layout_height="400dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:fontFamily="sans-serif-condensed-medium" />
 
 
     <LinearLayout
         android:id="@+id/middleLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="331dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
+        android:gravity="center_horizontal"
         android:visibility="gone">
-        <!--        <RelativeLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/cannyEdgeImage"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:scaleType="fitXY" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#FF0000"
-                android:text="Canny Edge Mask"/>
 
-        </RelativeLayout>-->
-        <!--        <RelativeLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/floodFillImage"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:scaleType="fitXY" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Flood Fill Image"/>
-
-        </RelativeLayout>-->
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/inputImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY" />
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:text="Input Image" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/outputImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY" />
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:text="Output Image" />
 
         </RelativeLayout>
     </LinearLayout>
 
-<!--    <LinearLayout
-        android:id="@+id/bottomLayout"
+//selected color view
+    <TextView
+        android:id="@+id/selectedcolorview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:visibility="gone">
-&lt;!&ndash;        <RelativeLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/HSVImage"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:scaleType="fitXY" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HSV Image"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff"
+        android:clipToOutline="true"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:outlineProvider="bounds"
+        android:text="Choose a color."
+        android:layout_marginBottom="50dp"
 
-        </RelativeLayout>&ndash;&gt;
-  </LinearLayout>-->
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:visibility="gone" />
 
     <TextView
-        android:layout_width="120dp"
-        android:layout_height="85dp"
+        android:id="@+id/acquaepoxytextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:clipToOutline="true"
+        android:elevation="4dp"
         android:gravity="center"
-        android:text="Color:"
+        android:outlineProvider="bounds"
+        android:padding="10dp"
+        android:text="BOYSEN® Acqua Epoxy™"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:visibility="gone" />
+
+    <HorizontalScrollView
+        android:id="@+id/acquascrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="4dp"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/whiteButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f6f7f1" />
+
+            <Button
+                android:id="@+id/grayButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#585f65" />
+
+            <Button
+                android:id="@+id/handicapblueButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#01356f" />
+
+            <Button
+                android:id="@+id/chromegreenButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#2c3c22" />
+
+            <Button
+                android:id="@+id/trafficYellowButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#feac00" />
+
+            <Button
+                android:id="@+id/safetyorangeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#dc2f0f" />
+
+            <Button
+                android:id="@+id/ceramicredButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#803b1c" />
+
+            <Button
+                android:id="@+id/blackButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0f0e0c" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/coolshadestextView"
+        android:text="BOYSEN® Cool Shades™"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:outlineProvider="bounds"
+        android:clipToOutline="true"
+        android:elevation="4dp"
+        tools:visibility="gone" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/coolshadesscrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:elevation="4dp"
+        android:layout_marginBottom="10dp"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/reflectingwhiteButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#fcfbf8" />
+
+            <Button
+                android:id="@+id/shadygrayButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#dad9db" />
+
+            <Button
+                android:id="@+id/radiantbeigeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#c8bc99" />
+
+            <Button
+                android:id="@+id/polarizeblueButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0072ae" />
+
+            <Button
+                android:id="@+id/springgreenButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#007256" />
+
+            <Button
+                android:id="@+id/vibrantterracottaButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#b36747" />
+
+            <Button
+                android:id="@+id/zenbrownButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#391d19" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/healthyhometextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:clipToOutline="true"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:outlineProvider="bounds"
+        android:padding="10dp"
+        android:text="BOYSEN® Healthy Home™"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:visibility="visible" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/healthyhomescrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="4dp"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/hygienicwhiteButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f6f7f1" />
+
+            <Button
+                android:id="@+id/lighttanButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#d6bf93" />
+
+            <Button
+                android:id="@+id/cleanslateButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#9fa8a7" />
+
+            <Button
+                android:id="@+id/serenelakeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#92b2e1" />
+
+            <Button
+                android:id="@+id/freshairButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#7eb2da" />
+
+            <Button
+                android:id="@+id/floraButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#a3b787" />
+
+            <Button
+                android:id="@+id/shiningochreButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f1c062" />
+
+            <Button
+                android:id="@+id/bloomButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#eadcd9" />
+
+            <Button
+                android:id="@+id/rosyButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ca8f89" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/permacoattextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:clipToOutline="true"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:outlineProvider="bounds"
+        android:padding="10dp"
+        android:text="BOYSEN® Permacoat™ Latex"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:visibility="visible" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/permacoatscrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="4dp"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/faintsilverButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#e7e2da" />
+
+            <Button
+                android:id="@+id/bridalwhiteButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#eee6d7" />
+
+            <Button
+                android:id="@+id/wintermorningButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#e9e4dc" />
+
+            <Button
+                android:id="@+id/tullewhiteButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#e8e8e0" />
+
+            <Button
+                android:id="@+id/shadediceButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#dddee0" />
+
+            <Button
+                android:id="@+id/coastlightButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#fbebd1" />
+
+            <Button
+                android:id="@+id/graycastleButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ebe4d9" />
+
+            <Button
+                android:id="@+id/almostwinterButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#e0ddd4" />
+
+            <Button
+                android:id="@+id/snowfieldButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#dbdddc" />
+
+            <Button
+                android:id="@+id/vanillaiceButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f9eedb" />
+
+            <Button
+                android:id="@+id/crispecruButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#f8e7cd" />
+
+            <Button
+                android:id="@+id/aquacoolButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#85c7d5" />
+
+            <Button
+                android:id="@+id/amishlinenButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ecdcc5" />
+
+            <Button
+                android:id="@+id/pureivoryButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#fcdfbd" />
+
+
+            <Button
+                android:id="@+id/dappertanButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#d4bea7" />
+
+
+            <Button
+                android:id="@+id/basicbeigeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ded7c5" />
+
+
+            <Button
+                android:id="@+id/breezeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#7fa4d8" />
+
+
+            <Button
+                android:id="@+id/peachmedleyButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#eec4ae" />
+
+            <Button
+                android:id="@+id/boneivoryButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#e9d1ab" />
+
+            <Button
+                android:id="@+id/pawnbeigeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#b99e8b" />
+
+            <Button
+                android:id="@+id/wetsandButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#bfb39b" />
+
+            <Button
+                android:id="@+id/hintofmintButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#e5efcc" />
+
+            <Button
+                android:id="@+id/nuevoterraButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ce886e" />
+
+            <Button
+                android:id="@+id/yellowwareButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ffd986" />
+
+            <Button
+                android:id="@+id/archipelagoButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#92806c" />
+
+            <Button
+                android:id="@+id/stonebeigeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#baaa90" />
+
+            <Button
+                android:id="@+id/snappygreenButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#dbdc96" />
+
+            <Button
+                android:id="@+id/oldredwoodButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#9d5c5a" />
+
+            <Button
+                android:id="@+id/ojayButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#db9e65" />
+
+            <Button
+                android:id="@+id/chocolatekissButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#705d4d" />
+
+            <Button
+                android:id="@+id/mudpieButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#8f857b" />
+
+            <Button
+                android:id="@+id/limelillyButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#ced87f" />
+
+            <Button
+                android:id="@+id/ashtonButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#9c9791" />
+
+            <Button
+                android:id="@+id/mysteryButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#90a691" />
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/viewresultbtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:layout_gravity="center"
+        android:elevation="4dp"
+        android:padding="12dp"
+        android:text="View Result / Choose another color"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/takenewphotobtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_background"
+        android:elevation="4dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:text="retake photo"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
 
 </LinearLayout>

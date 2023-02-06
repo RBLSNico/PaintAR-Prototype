@@ -40,6 +40,17 @@ import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import android.content.res.TypedArray
+import androidx.appcompat.widget.AppCompatButton
+import androidx.gridlayout.widget.GridLayout
+import android.content.Context
+import android.graphics.Color
+import android.widget.Button
+import android.widget.TextView
+import androidx.annotation.ColorInt
+import kotlinx.android.synthetic.main.activity_main.*
+import android.app.AlertDialog
+
 
 typealias Coordinates = Pair<Point, Point>
 
@@ -55,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var tl: Point
     private lateinit var br: Point
     lateinit var bitmap: Bitmap
-    var chosenColor = Color.RED
+    var chosenColor = Color.WHITE
 //        Scalar(200.0, 0.0, 0.0)
 
     private val TAG = MainActivity::class.java.simpleName
@@ -84,8 +95,458 @@ class MainActivity : AppCompatActivity() {
         br = Point()
 
         openCamera()
+        showhealthyhome()
+
+        val textView1 : TextView = findViewById<TextView>(R.id.acquaepoxytextView)
+        textView1.setOnClickListener {
+            val description = "BOYSEN® Acqua Epoxy™ is a two-component water-based acrylic epoxy paint that has superior solvent, chemical, and stain resistance. It is ideal for concrete floors and properly primed metal surfaces. It has the advantages of easier application and better weather resistance properties."
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("BOYSEN® Acqua Epoxy™")
+                .setMessage(description)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        val textView2 : TextView = findViewById<TextView>(R.id.coolshadestextView)
+        textView2.setOnClickListener {
+            val description = "BOYSEN® Cool Shades™ is a water-based, low- VOC paint designed with highly engineered infrared-reflecting (IR) pigments making it possible to create elegant shades of roof coating while reducing heat build-up on painted surfaces. Its 100% acrylic binder provides excellent dirt pick-up resistance and preserves heat-reflective properties over time."
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("BOYSEN® Cool Shades™")
+                .setMessage(description)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        val textView3 : TextView = findViewById<TextView>(R.id.healthyhometextView)
+        textView3.setOnClickListener {
+            val description = "BOYSEN® Healthy Home™ is a premium, odor- less, low-VOC, lead-free paint. It is an acrylic water-based interior coating with antibacterial protection to give extra defense against bacteria such as E. coli and Salmonella, as well as mildew and fungus."
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("BOYSEN® Healthy Home™")
+                .setMessage(description)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        val textView4 : TextView = findViewById<TextView>(R.id.permacoattextView)
+        textView4.setOnClickListener {
+            val description = "BOYSEN® Permacoat™ Latex is a 100% acrylic paint with excellent hiding and outstanding durability."
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("BOYSEN® Permacoat™ Latex")
+                .setMessage(description)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+
 //        openGallery()
+
+//      acqua expoxy
+        whiteButton.setOnClickListener {
+            showToast("B-2900 White")
+            chosenColor = Color.parseColor("#f6f7f1")
+            textView1.text = "B-2900 White"
+        }
+
+        grayButton.setOnClickListener {
+            showToast("B-2930 Gray")
+            chosenColor = Color.parseColor("#585f65")
+            textView1.text = "B-2930 Gray"
+
+        }
+
+        handicapblueButton.setOnClickListener {
+            showToast("B-2940 Handicap Blue")
+            chosenColor = Color.parseColor("#01356f")
+            textView1.text = "B-2940 Handicap Blue"
+
+        }
+
+        chromegreenButton.setOnClickListener {
+            showToast("B-2950 Chrome Green")
+            chosenColor = Color.parseColor("#2c3c22")
+            textView1.text = "B-2950 Chrome Green"
+        }
+
+        trafficYellowButton.setOnClickListener {
+            showToast("B-2965 Traffic Yellow")
+            chosenColor = Color.parseColor("#feac00")
+            textView1.text = "B-2965 Traffic Yellow"
+        }
+
+        safetyorangeButton.setOnClickListener {
+            showToast("B-2970 Safety Orange")
+            chosenColor = Color.parseColor("#dc2f0f")
+            textView1.text = "B-2970 Safety Orange"
+        }
+
+        blackButton.setOnClickListener {
+            showToast("B-2990 Black")
+            chosenColor = Color.parseColor("#0f0e0c")
+            textView1.text = "B-2990 Black"
+        }
+
+        ceramicredButton.setOnClickListener {
+            showToast("B-2976 Ceramic Red")
+            chosenColor = Color.parseColor("#803b1c")
+            textView1.text = "B-2976 Ceramic Red"
+        }
+
+//      cool shades
+        reflectingwhiteButton.setOnClickListener {
+            showToast("B-8500 Reflecting White")
+            chosenColor = Color.parseColor("#fcfbf8")
+            textView2.text = "B-8500 Reflecting White"
+        }
+
+        shadygrayButton.setOnClickListener {
+            showToast("B-8501 Shady Gray")
+            chosenColor = Color.parseColor("#dad9db")
+            textView2.text = "B-8501 Shady Gray"
+        }
+
+        radiantbeigeButton.setOnClickListener {
+            showToast("B-8520 Radiant Beige")
+            textView2.text = "B-8520 Radiant Beige"
+            chosenColor = Color.parseColor("#c8bc99")
+        }
+
+        polarizeblueButton.setOnClickListener {
+            showToast("B-8547 Polarize Blue")
+            textView2.text = "B-8547 Polarize Blue"
+            chosenColor = Color.parseColor("#0072ae")
+        }
+
+        springgreenButton.setOnClickListener {
+            showToast("B-8550 Spring Green")
+            textView2.text = "B-8550 Spring Green"
+            chosenColor = Color.parseColor("#007256")
+        }
+
+        vibrantterracottaButton.setOnClickListener {
+            showToast("B-8573 Vibrant Terra Cotta")
+            textView2.text = "B-8573 Vibrant Terra Cotta"
+            chosenColor = Color.parseColor("#b36747")
+        }
+
+        zenbrownButton.setOnClickListener {
+            showToast("B-8580 Zen Brown")
+            textView2.text = "B-8580 Zen Brown"
+            chosenColor = Color.parseColor("#391d19")
+        }
+
+//      healthy home
+        hygienicwhiteButton.setOnClickListener {
+            showToast("B-7410 Hygienic White")
+            textView3.text = "B-7410 Hygienic White"
+            chosenColor = Color.parseColor("#f6f7f1")
+        }
+
+        lighttanButton.setOnClickListener {
+            showToast("B-7420 Light Tan")
+            textView3.text = "B-7420 Light Tan"
+            chosenColor = Color.parseColor("#d6bf93")
+        }
+
+        cleanslateButton.setOnClickListener {
+            showToast("B-7430 Clean Slate")
+            textView3.text = "B-7430 Clean Slate"
+            chosenColor = Color.parseColor("#9fa8a7")
+        }
+
+        serenelakeButton.setOnClickListener {
+            showToast("B-7440 Serene Lake")
+            textView3.text = "B-7440 Serene Lake"
+            chosenColor = Color.parseColor("#92b2e1")
+        }
+
+        freshairButton.setOnClickListener {
+            showToast("B-7442 Fresh Air")
+            textView3.text = "B-7442 Fresh Air"
+            chosenColor = Color.parseColor("#7eb2da")
+        }
+
+        floraButton.setOnClickListener {
+            showToast("B-7450 Flora")
+            textView3.text = "B-7450 Flora"
+            chosenColor = Color.parseColor("#a3b787")
+        }
+
+        shiningochreButton.setOnClickListener {
+            showToast("B-7460 Shining Ochre")
+            textView3.text = "B-7460 Shining Ochre"
+            chosenColor = Color.parseColor("#f1c062")
+        }
+
+        bloomButton.setOnClickListener {
+            showToast("B-7470 Bloom")
+            textView3.text = "B-7470 Bloom"
+            chosenColor = Color.parseColor("#eadcd9")
+        }
+
+        rosyButton.setOnClickListener {
+            showToast("B-7472 Rosy")
+            textView3.text = "B-7472 Rosy"
+            chosenColor = Color.parseColor("#ca8f89")
+        }
+//        HH_8_G99Button.setOnClickListener {
+//            showToast("HH-8-G99")
+//            textView3.text = "HH-8-G99"
+//            chosenColor = Color.parseColor("#fce2bd")
+//        }
+//
+//        HH_9_G81Button.setOnClickListener {
+//            showToast("HH-8-G99")
+//            textView3.text = "HH-8-G99"
+//            chosenColor = Color.parseColor("#f7c495")
+//        }
+//
+//        HH_9_G83Button.setOnClickListener {
+//            showToast("HH-9-G83")
+//            textView3.text = "HH-9-G83"
+//            chosenColor = Color.parseColor("#e7aa67")
+//        }
+//
+//        HH_9_G100Button.setOnClickListener {
+//            showToast("HH-9-G100")
+//            textView3.text = "HH_9_G100"
+//            chosenColor = Color.parseColor("#f7dec0")
+//        }
+////
+//        HH_10_G82Button.setOnClickListener {
+//            showToast("HH-10-G82")
+//            textView3.text = "HH-10-G82"
+//            chosenColor = Color.parseColor("#e0ab75")
+//        }
+//
+//        HH_10_G93Button.setOnClickListener {
+//            showToast("HH-10-G93")
+//            textView3.text = "HH-10-G93"
+//            chosenColor = Color.parseColor("#f6d2b0")
+//        }
+//
+//        HH_10_G96Button.setOnClickListener {
+//            showToast("HH-10-G96")
+//            textView3.text = "HH-10-G96"
+//            chosenColor = Color.parseColor("#eed8c1")
+//        }
+//
+//        HH_9_G100Button.setOnClickListener {
+//            showToast("HH-9-G100")
+//            textView3.text = "HH_9_G100"
+//            chosenColor = Color.parseColor("#f7dec0")
+//        }
+
+        //permacoat
+
+        faintsilverButton.setOnClickListener {
+            showToast("B-7514 Faint Silver")
+            textView4.text = "B-7514 Faint Silver"
+            chosenColor = Color.parseColor("#e7e2da")
+        }
+        bridalwhiteButton.setOnClickListener {
+            showToast("B-7509 Bridal White")
+            textView4.text = "B-7509 Bridal White"
+            chosenColor = Color.parseColor("#eee6d7")
+        }
+        wintermorningButton.setOnClickListener {
+            showToast("B-7502 Winter Morning")
+            textView4.text = "B-7502 Winter Morning"
+            chosenColor = Color.parseColor("#e9e4dc")
+        }
+        tullewhiteButton.setOnClickListener {
+            showToast("B-7501 Tulle White")
+            textView4.text = "B-7501 Tulle White"
+            chosenColor = Color.parseColor("#e8e8e0")
+        }
+        shadediceButton.setOnClickListener {
+            showToast("B-7507 Shaded Ice")
+            textView4.text = "B-7507 Shaded Ice"
+            chosenColor = Color.parseColor("#dddee0")
+        }
+        coastlightButton.setOnClickListener {
+            showToast("B-7504 Coast Light")
+            textView4.text = "B-7504 Coast Light"
+            chosenColor = Color.parseColor("#fbebd1")
+        }
+
+        graycastleButton.setOnClickListener {
+            showToast("B-7530 Gray Castle")
+            textView4.text = "B-7530 Gray Castle"
+            chosenColor = Color.parseColor("#ebe4d9")
+        }
+
+        almostwinterButton.setOnClickListener {
+            showToast("B-7506 Almost Winter")
+            textView4.text = "B-7506 Almost Winter"
+            chosenColor = Color.parseColor("#e0ddd4")
+        }
+
+        snowfieldButton.setOnClickListener {
+            showToast("B-7505 Snow Field")
+            textView4.text = "B-7505 Snow Field"
+            chosenColor = Color.parseColor("#dbdddc")
+        }
+
+        vanillaiceButton.setOnClickListener {
+            showToast("B-7511 Vanilla Ice")
+            textView4.text = "B-7511 Vanilla Ice"
+            chosenColor = Color.parseColor("#f9eedb")
+        }
+
+        crispecruButton.setOnClickListener {
+            showToast("B-7513 Crisp Ecru")
+            textView4.text = "B-7513 Crisp Ecru"
+            chosenColor = Color.parseColor("#f8e7cd")
+        }
+
+        aquacoolButton.setOnClickListener {
+            showToast("B-7541 Aqua Cool")
+            textView4.text = "B-7541 Aqua Cool"
+            chosenColor = Color.parseColor("#85c7d5")
+        }
+
+        amishlinenButton.setOnClickListener {
+            showToast("B-7523 Amish Linen")
+            textView4.text = "B-7523 Amish Linen"
+            chosenColor = Color.parseColor("#ecdcc5")
+        }
+        pureivoryButton.setOnClickListener {
+            showToast("B-7521 Pure Ivory")
+            textView4.text = "B-7521 Pure Ivory"
+            chosenColor = Color.parseColor("#fcdfbd")
+        }
+        dappertanButton.setOnClickListener {
+            showToast("B-7524 Dapper Tan")
+            textView4.text = "B-7524 Dapper Tan"
+            chosenColor = Color.parseColor("#d4bea7")
+        }
+        basicbeigeButton.setOnClickListener {
+            showToast("B-7522 Basic Beige")
+            textView4.text = "B-7522 Basic Beige"
+            chosenColor = Color.parseColor("#ded7c5")
+        }
+        breezeButton.setOnClickListener {
+            showToast("B-7540 Breeze")
+            textView4.text = "B-7540 Breeze"
+            chosenColor = Color.parseColor("#7fa4d8")
+        }
+        peachmedleyButton.setOnClickListener {
+            showToast("B-7571 Peach Medley")
+            textView4.text = "B-7571 Peach Medley"
+            chosenColor = Color.parseColor("#eec4ae")
+        }
+
+        boneivoryButton.setOnClickListener {
+            showToast("B-7525 Bone Ivory")
+            textView4.text = "B-7525 Bone Ivory"
+            chosenColor = Color.parseColor("#e9d1ab")
+        }
+
+        pawnbeigeButton.setOnClickListener {
+            showToast("B-7508 Pawn Beige")
+            textView4.text = "B-7508 Pawn Beige"
+            chosenColor = Color.parseColor("#b99e8b")
+        }
+
+        wetsandButton.setOnClickListener {
+            showToast("B-7526 Wet Sand")
+            textView4.text = "B-7526 Wet Sand"
+            chosenColor = Color.parseColor("#bfb39b")
+        }
+
+        hintofmintButton.setOnClickListener {
+            showToast("B-7551 Hint of Mint")
+            textView4.text = "B-7551 Hint of Mint"
+            chosenColor = Color.parseColor("#e5efcc")
+        }
+
+        nuevoterraButton.setOnClickListener {
+            showToast("B-7580 Nuevo Terra")
+            textView4.text = "B-7580 Nuevo Terra"
+            chosenColor = Color.parseColor("#ce886e")
+        }
+
+        yellowwareButton.setOnClickListener {
+            showToast("B-7560 Yellow Ware")
+            textView4.text = "B-7560 Yellow Ware"
+            chosenColor = Color.parseColor("#ffd986")
+        }
+
+
+        archipelagoButton.setOnClickListener {
+            showToast("B-7582 Archipelago")
+            textView4.text = "B-7582 Archipelago"
+            chosenColor = Color.parseColor("#92806c")
+        }
+        stonebeigeButton.setOnClickListener {
+            showToast("B-7520 Stone Beige")
+            textView4.text = "BB-7520 Stone Beige"
+            chosenColor = Color.parseColor("#baaa90")
+        }
+        snappygreenButton.setOnClickListener {
+            showToast("B-7550 Snappy Green")
+            textView4.text = "B-7550 Snappy Green"
+            chosenColor = Color.parseColor("#dbdc96")
+        }
+        oldredwoodButton.setOnClickListener {
+            showToast("B-7570 Old Redwood")
+            textView4.text = "B-7570 Old Redwood"
+            chosenColor = Color.parseColor("#9d5c5a")
+        }
+        ojayButton.setOnClickListener {
+            showToast("B-7566 Ojay")
+            textView4.text = "B-7566 Ojay"
+            chosenColor = Color.parseColor("#db9e65")
+        }
+        chocolatekissButton.setOnClickListener {
+            showToast("B-7588 Chocolate Kiss")
+            textView4.text = "B-7588 Chocolate Kiss"
+            chosenColor = Color.parseColor("#705d4d")
+        }
+
+        mudpieButton.setOnClickListener {
+            showToast("B-7581 Mud Pie")
+            textView4.text = "B-7581 Mud Pie"
+            chosenColor = Color.parseColor("#8f857b")
+        }
+        limelillyButton.setOnClickListener {
+            showToast("B-7552 Lime Lily")
+            textView4.text = "B-7552 Lime Lily"
+            chosenColor = Color.parseColor("#ced87f")
+        }
+        ashtonButton.setOnClickListener {
+            showToast("B-7503 Ashton Grey")
+            textView4.text = "B-7503 Ashton Grey"
+            chosenColor = Color.parseColor("#9c9791")
+        }
+        mysteryButton.setOnClickListener {
+            showToast("B-7512 Mystery Winter")
+            textView4.text = "B-7512 Mystery Winter"
+            chosenColor = Color.parseColor("#90a691")
+        }
+
+        val selectedcolortv : TextView = findViewById(R.id.selectedcolorview)
+
+
+
+        viewresultbtn.setOnClickListener {
+            showImage()
+        }
+
+        takenewphotobtn.setOnClickListener {
+            openCamera()
+            showhealthyhome()
+        }
+
+
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+
+
 
     private fun openGallery() {
         val i = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -98,6 +559,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val textView1 : TextView = findViewById<TextView>(R.id.acquaepoxytextView)
+        val textView2 : TextView = findViewById<TextView>(R.id.coolshadestextView)
+        val textView3 : TextView = findViewById<TextView>(R.id.healthyhometextView)
+        val textView4 : TextView = findViewById<TextView>(R.id.permacoattextView)
+
         when(item.itemId) {
             R.id.action_open_img -> {
                 showImage()
@@ -119,6 +585,56 @@ class MainActivity : AppCompatActivity() {
         }
             R.id.action_boysen_color -> {
                 chooseBoysen()
+            }
+            R.id.action_acqua_epoxy -> {
+                showacquaEpoxy()
+                textView1.text = "BOYSEN® Acqua Epoxy™"
+                acquaepoxytextView.visibility = View.VISIBLE
+                acquascrollView.visibility = View.VISIBLE
+                coolshadestextView.visibility = View.GONE
+                coolshadesscrollView.visibility = View.GONE
+                healthyhometextView.visibility = View.GONE
+                healthyhomescrollView.visibility = View.GONE
+                permacoatscrollView.visibility = View.GONE
+                permacoattextView.visibility = View.GONE
+
+            }
+            R.id.action_cool_shades -> {
+                showcoolshades()
+                textView2.text = "BOYSEN® Cool Shades™"
+                coolshadestextView.visibility = View.VISIBLE
+                coolshadesscrollView.visibility = View.VISIBLE
+                healthyhometextView.visibility = View.GONE
+                healthyhomescrollView.visibility = View.GONE
+                acquaepoxytextView.visibility = View.GONE
+                acquascrollView.visibility = View.GONE
+                permacoatscrollView.visibility = View.GONE
+                permacoattextView.visibility = View.GONE
+
+            }
+            R.id.action_healthy_home -> {
+                showhealthyhome()
+                textView3.text = "BOYSEN® Healthy Home™"
+                healthyhometextView.visibility = View.VISIBLE
+                healthyhomescrollView.visibility = View.VISIBLE
+                acquaepoxytextView.visibility = View.GONE
+                acquascrollView.visibility = View.GONE
+                coolshadestextView.visibility = View.GONE
+                coolshadesscrollView.visibility = View.GONE
+                permacoatscrollView.visibility = View.GONE
+                permacoattextView.visibility = View.GONE
+            }
+            R.id.action_permacoat -> {
+                showpermacoat()
+                textView3.text = "BOYSEN® Permacoat™ Latex"
+                permacoatscrollView.visibility = View.VISIBLE
+                permacoattextView.visibility = View.VISIBLE
+                healthyhometextView.visibility = View.GONE
+                healthyhomescrollView.visibility = View.GONE
+                acquaepoxytextView.visibility = View.GONE
+                acquascrollView.visibility = View.GONE
+                coolshadestextView.visibility = View.GONE
+                coolshadesscrollView.visibility = View.GONE
             }
         }
         return  true
@@ -268,6 +784,17 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        selectedcolorview.visibility = View.GONE
+        selectedcolorview.visibility = View.GONE
+        middleLayout.visibility = View.GONE
+        viewresultbtn.visibility = View.GONE
+        coolshadesscrollView.visibility = View.GONE
+        coolshadestextView.visibility = View.GONE
+        healthyhomescrollView.visibility = View.GONE
+        healthyhometextView.visibility = View.GONE
+        acquascrollView.visibility = View.GONE
+        acquaepoxytextView.visibility = View.GONE
+        takenewphotobtn.visibility = View.VISIBLE
     }
 
     fun getResizedBitmap(bm: Bitmap, newWidth: Int, newHeight: Int): Bitmap {
@@ -292,7 +819,8 @@ class MainActivity : AppCompatActivity() {
 
         // show intermediate step results
         // grid created here to do that
-        showResultLayouts()
+//        showResultLayouts()
+        showImage()
 
         val mRgbMat = Mat()
         Utils.bitmapToMat(bitmap, mRgbMat)
@@ -382,7 +910,7 @@ class MainActivity : AppCompatActivity() {
 
         Core.addWeighted(result,0.7, img,0.3 ,0.0,result )
 
-        showImage(result,outputImage)
+        showImage(result,imageFromData)
         return result
     }
 
@@ -400,15 +928,35 @@ class MainActivity : AppCompatActivity() {
         imageFromData.visibility = View.GONE
 
 //       topLayout.visibility = View.VISIBLE
+        selectedcolorview.visibility = View.VISIBLE
         middleLayout.visibility = View.VISIBLE
+        viewresultbtn.visibility = View.VISIBLE
+        acquascrollView.visibility = View.GONE
+        acquaepoxytextView.visibility = View.GONE
+        coolshadesscrollView.visibility = View.GONE
+        coolshadestextView.visibility = View.GONE
+        healthyhomescrollView.visibility = View.GONE
+        healthyhometextView.visibility = View.GONE
 //        bottomLayout.visibility = View.VISIBLE
+    }
+
+    private fun showselectedcolor() {
+
     }
 
     private fun showImage() {
         imageFromData.visibility = View.VISIBLE
 
 //        topLayout.visibility = View.GONE
-        middleLayout.visibility = View.GONE
+//        selectedcolorview.visibility = View.GONE
+//        middleLayout.visibility = View.GONE
+//        viewresultbtn.visibility = View.GONE
+//        coolshadesscrollView.visibility = View.GONE
+//        coolshadestextView.visibility = View.GONE
+//        healthyhomescrollView.visibility = View.VISIBLE
+//        healthyhometextView.visibility = View.VISIBLE
+//        acquascrollView.visibility = View.GONE
+//        acquaepoxytextView.visibility = View.GONE
 //        bottomLayout.visibility = View.GONE
 
         try {
@@ -416,6 +964,56 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, "No image selected",Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun showacquaEpoxy () {
+        acquascrollView.visibility = View.VISIBLE
+        acquaepoxytextView.visibility = View.VISIBLE
+        coolshadesscrollView.visibility = View.GONE
+        coolshadestextView.visibility = View.GONE
+        healthyhomescrollView.visibility = View.GONE
+        healthyhometextView.visibility = View.GONE
+        selectedcolorview.visibility = View.GONE
+        permacoattextView.visibility = View.GONE
+        permacoatscrollView.visibility = View.GONE
+    }
+
+    private fun showcoolshades () {
+        coolshadesscrollView.visibility = View.VISIBLE
+        coolshadestextView.visibility = View.VISIBLE
+        acquascrollView.visibility = View.GONE
+        acquaepoxytextView.visibility = View.GONE
+        healthyhomescrollView.visibility = View.GONE
+        healthyhometextView.visibility = View.GONE
+        selectedcolorview.visibility = View.GONE
+        permacoattextView.visibility = View.GONE
+        permacoatscrollView.visibility = View.GONE
+
+    }
+
+    private fun showhealthyhome () {
+        healthyhomescrollView.visibility = View.VISIBLE
+        healthyhometextView.visibility = View.VISIBLE
+        coolshadesscrollView.visibility = View.GONE
+        coolshadestextView.visibility = View.GONE
+        acquascrollView.visibility = View.GONE
+        acquaepoxytextView.visibility = View.GONE
+        selectedcolorview.visibility = View.GONE
+        permacoattextView.visibility = View.GONE
+        permacoatscrollView.visibility = View.GONE
+
+    }
+
+    private fun showpermacoat() {
+        permacoattextView.visibility = View.VISIBLE
+        permacoatscrollView.visibility = View.VISIBLE
+        healthyhomescrollView.visibility = View.GONE
+        healthyhometextView.visibility = View.GONE
+        coolshadesscrollView.visibility = View.GONE
+        coolshadestextView.visibility = View.GONE
+        acquascrollView.visibility = View.GONE
+        acquaepoxytextView.visibility = View.GONE
+        selectedcolorview.visibility = View.GONE
     }
 
     private fun chooseColor() {
@@ -565,7 +1163,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getTextureImage(): Mat {
-        var textureImage = BitmapFactory.decodeResource(getResources(), R.drawable.boysen)
+        var textureImage = BitmapFactory.decodeResource(getResources(), R.drawable.black)
         textureImage = getResizedBitmap(textureImage,bitmap.width,bitmap.height)
         val texture = Mat()
         Utils.bitmapToMat(textureImage,texture)

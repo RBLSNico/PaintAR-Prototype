@@ -38,5 +38,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation project(path: ':openCVLibrary347')
     implementation 'com.github.yukuku:ambilwarna:2.0.1'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.github.skydoves:colorpickerpreference:1.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
 
 }
