@@ -23,31 +23,26 @@
         android:visible="false" />
     <item
         android:id="@+id/action_take_photo"
-        android:orderInCategory="3"
+        android:orderInCategory="1"
         android:title="@string/menu_photo"
-        app:showAsAction="never" />
+        />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="2"
+        android:title="Help"
+        />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="3"
+        android:title="About"
+        />
     <item
         android:id="@+id/action_get_gallery"
         android:orderInCategory="4"
         android:title="@string/menu_gallery"
         android:visible="false"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_healthy_home"
-        android:orderInCategory="4"
-        android:title="Healthy Home" />
-    <item
-        android:id="@+id/action_permacoat"
-        android:orderInCategory="7"
-        android:title="Permacoat" />
-    <item
-        android:id="@+id/action_acqua_epoxy"
-        android:orderInCategory="5"
-        android:title="Acqua Epoxy" />
-    <item
-        android:id="@+id/action_cool_shades"
-        android:orderInCategory="5"
-        android:title="Cool Shades" />
+
     <item
         android:id="@+id/action_get_color"
         android:icon="@drawable/ic_color_palette"
@@ -56,7 +51,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_get_texture"
-        android:orderInCategory="6"
+        android:orderInCategory="8"
         android:title="@string/menu_texture"
         android:visible="false"
         app:showAsAction="never" />
@@ -66,4 +61,11 @@
         android:title="Boysen Color"
         android:visible="false"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_undo"
+        android:icon="@drawable/undo"
+        android:orderInCategory="8"
+        android:title="Undo Image"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 </menu>

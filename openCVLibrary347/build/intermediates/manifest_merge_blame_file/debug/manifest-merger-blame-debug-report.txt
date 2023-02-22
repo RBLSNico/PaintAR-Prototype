@@ -6,7 +6,7 @@
 6
 7    <uses-sdk
 7-->C:\Users\Nico\StudioProjects\PaintAR\openCVLibrary347\src\main\AndroidManifest.xml:7:5-47
-8        android:minSdkVersion="15"
+8        android:minSdkVersion="16"
 8-->C:\Users\Nico\StudioProjects\PaintAR\openCVLibrary347\src\main\AndroidManifest.xml:7:5-47
 9        android:targetSdkVersion="32" />
 9-->C:\Users\Nico\StudioProjects\PaintAR\openCVLibrary347\src\main\AndroidManifest.xml:7:15-44

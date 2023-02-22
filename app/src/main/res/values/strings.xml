@@ -9,5 +9,8 @@
     <string name="menu_color">Choose Color</string>
     <string name="menu_texture">Choose Texture</string>
 
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 
 </resources>

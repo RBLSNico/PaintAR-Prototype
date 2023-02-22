@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--This line changes the color of text in Toolbar-->
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
     </style>
+
+
 
 </resources>

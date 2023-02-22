@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_healthy_home"
+        android:orderInCategory="1"
+        android:title="Healthy Home"
+        android:icon="@drawable/paintbucket"
+        />
+
+    <item
+        android:id="@+id/action_permacoat"
+        android:orderInCategory="2"
+        android:title="Permacoat"
+        android:icon="@drawable/paintbucket"
+        />
+    <item
+        android:id="@+id/action_acqua_epoxy"
+        android:orderInCategory="4"
+        android:title="Acqua Epoxy"
+        android:icon="@drawable/paintbucket"
+        />
+    <item
+        android:id="@+id/action_cool_shades"
+        android:orderInCategory="3"
+        android:title="Cool Shades"
+        android:icon="@drawable/paintbucket"
+        />
+
+
+</menu>
