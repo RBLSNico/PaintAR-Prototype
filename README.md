@@ -1,1 +1,1 @@
-# Wall-Paint-App-Android
+# PaintAR - A Wall Paint Visualizer
